@@ -1,0 +1,24 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"useDefineForClassFields": true,
+		"lib": ["es2022", "DOM", "DOM.Iterable"],
+		"module": "ESNext",
+		"skipLibCheck": true,
+		"moduleResolution": "bundler",
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"strict": true,
+		// One alias for the whole tree — "@/" is src/. Per-bucket aliases
+		// (@utils, @typings, …) are deliberately not used: they multiply the
+		// tsconfig/vite sync burden and introduce prefix-matching order traps.
+		// Keep in sync with "resolve.alias" in vite.config.js.
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	},
+	"include": ["src"]
+}

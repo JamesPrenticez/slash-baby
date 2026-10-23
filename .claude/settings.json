@@ -1,0 +1,39 @@
+{
+	"statusLine": {
+		"type": "command",
+		"command": "bash ./.claude/statusline-command.sh"
+	},
+	"defaultMode": "manual",
+	"permissions": {
+		"deny": ["DesignSync", "NotebookEdit", "SendMessage", "PushNotification", "RemoteTrigger", "ScheduleWakeup"],
+		"allow": ["Bash(pnpm exec *)", "Bash(pnpm test *)", "Bash(npx eslint *)"]
+	},
+	"hooks": {
+		"SessionStart": [
+			{
+				"hooks": [
+					{
+						"type": "command",
+						"command": "bash ./.claude/hooks/session-start-check.sh"
+					}
+				]
+			}
+		]
+	},
+	"attribution": {
+		"commit": "",
+		"pr": ""
+	},
+	"enabledPlugins": {
+		"ponytail@ponytail": true
+	},
+	"extraKnownMarketplaces": {
+		"ponytail": {
+			"source": {
+				"source": "github",
+				"repo": "DietrichGebert/ponytail"
+			}
+		}
+	},
+	"effortLevel": "medium"
+}

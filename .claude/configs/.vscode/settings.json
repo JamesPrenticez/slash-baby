@@ -1,0 +1,35 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.rulers": [120],
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+	"files.insertFinalNewline": true,
+	"files.trimTrailingWhitespace": true,
+	"files.associations": {
+		".prettierignore": "ignore",
+		"*.atlas": "plaintext"
+	},
+	// Keep search results and the file watcher off generated trees. server/data
+	// holds the SQLite DB, which is binary and rewritten on every server boot.
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/dist": true,
+		"**/pnpm-lock.yaml": true,
+		"server/data": true,
+		"release": true,
+		"playwright-report": true,
+		"test-results": true
+	},
+	"files.watcherExclude": {
+		"**/node_modules/**": true,
+		"**/dist/**": true,
+		"**/server/data/**": true,
+		"**/test-results/**": true,
+		"**/playwright-report/**": true
+	}
+}

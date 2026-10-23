@@ -1,0 +1,3 @@
+# Validates the commit message against Conventional Commits.
+# Rules live in commitlint.config.js.
+pnpm exec commitlint --edit "$1"

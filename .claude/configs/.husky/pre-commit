@@ -1,0 +1,18 @@
+# Abort on the first failing step. Husky's own wrapper already invokes hooks
+# with `sh -e`, but setting it here means running this file directly
+# (`sh .husky/pre-commit`) behaves identically — otherwise a lint-staged
+# failure would still fall through to the test run.
+set -e
+
+# 1. Lint + format the staged files (see the "lint-staged" field in package.json).
+#    Scoped to what you're committing, not the whole repo.
+pnpm exec lint-staged
+
+# 2. Run the full unit suite. `pnpm test` is Vitest in WATCH mode and would
+#    hang this hook forever — `vitest run` exits instead.
+#    `--changed` scopes it to affected code, so it stays cheap enough to gate
+#    every commit. Full-suite coverage (80% threshold) runs in CI instead —
+#    see coverage.thresholds in vite.config.js.
+#    Playwright's e2e specs are deliberately NOT here: they need a dev server
+#    and take far too long for a commit gate. Run them in CI.
+pnpm exec vitest run --changed

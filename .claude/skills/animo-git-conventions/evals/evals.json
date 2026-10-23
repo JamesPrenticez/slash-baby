@@ -1,0 +1,23 @@
+{
+  "skill_name": "animo-git-conventions",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a commit message for a fix that guards against a null player_id on withdrawal, ticket ANIMO-451.",
+      "expected_output": "A commit message in the form `fix: <imperative, lowercase subject, no trailing period, under ~72 chars>`, optionally with a `Refs: ANIMO-451` footer. No invented scope unless it adds clarity.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Make me a branch name for adding a new slots leaderboard feature, ticket ANIMO-512.",
+      "expected_output": "A branch name in the exact form `feat/ANIMO-512/<kebab-case-2-to-5-word-title>`.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write a PR title and description for a refactor that extracts the wallet balance calculation into a shared util, ticket ANIMO-390, targeting version/2.3.0.",
+      "expected_output": "PR title following commit convention (`refactor: ...`, imperative, lowercase, no period). Description includes what/why, a link/reference to ANIMO-390, testing notes, and mentions targeting the version/2.3.0 deployment branch (not master).",
+      "files": []
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+# Keep this in sync with eslint.config.js's globalIgnores — the two tools
+# should agree on what isn't the project's code to touch.
+#
+# .claude is the shared Claude Code template, not project source: `pnpm format`
+# would otherwise rewrite every skill file and hook script in it.
+.claude
+
+# Generated output.
+coverage
+dist
+playwright-report
+test-results
+
+pnpm-lock.yaml

@@ -1,0 +1,11 @@
+{
+	"recommendations": [
+		"esbenp.prettier-vscode",
+		"dbaeumer.vscode-eslint",
+		"styled-components.vscode-styled-components",
+		"vitest.explorer",
+		"ms-playwright.playwright",
+		"usernamehw.errorlens",
+		"editorconfig.editorconfig"
+	]
+}
