@@ -1,0 +1,11 @@
+@import url("./reset.css");
+
+@import url("./base-variables.css");
+@import url("./colors.css");
+@import url("./fonts.css");
+
+body {
+	margin: 0;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+}

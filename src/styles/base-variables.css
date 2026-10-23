@@ -1,0 +1,7 @@
+:root {
+	/*
+	 * Non-color, non-font tokens go here — spacing, radii, z-index, durations.
+	 * Empty on purpose: seeding a scale nobody asked for just gets ignored or
+	 * half-replaced. Add steps as the project needs them.
+	 */
+}

@@ -1,0 +1,16 @@
+:root {
+	--color-black: #000000;
+	--color-white: #ffffff;
+
+	--color-primary: #f2b93a;
+	--color-primary-hover: #e7b64f;
+	--color-primary-accent: #ffde96;
+
+	--color-secondary: #16a34a;
+	--color-secondary-hover: #388e3c;
+	--color-secondary-accent: #a5d6a7;
+
+	--color-negative: #f82738;
+	--color-negative-hover: #ff3b3b;
+	--color-negative-accent: #ff6f61;
+}

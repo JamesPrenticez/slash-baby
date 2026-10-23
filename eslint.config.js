@@ -102,7 +102,7 @@ export default defineConfig([
 					patterns: [
 						{
 							group: ["../*"],
-							message: "Import across directories with the \"@/\" alias; \"./\" for siblings."
+							message: 'Import across directories with the "@/" alias; "./" for siblings.'
 						}
 					]
 				}

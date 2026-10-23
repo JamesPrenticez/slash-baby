@@ -39,13 +39,7 @@ export default defineConfig(({ mode }) => {
 				// Test files and the setup file are excluded so they can't pad the
 				// numbers: a colocated *.test.tsx sits inside the include glob and
 				// would otherwise count as 100%-covered source.
-				exclude: [
-					"src/**/*.test.{ts,tsx}",
-					"src/vitest.setup.ts",
-					"src/main.tsx",
-					"src/**/*.d.ts",
-					"src/**/index.ts"
-				],
+				exclude: ["src/**/*.test.{ts,tsx}", "src/vitest.setup.ts", "src/main.tsx", "src/**/*.d.ts", "src/**/index.ts"],
 				// 80% is the team target. Adjust per-project only with a reason —
 				// this is meant to hold, not to be lowered on friction.
 				thresholds: {

@@ -38,7 +38,7 @@ step "Scaffolding Vite + React + TS"
 tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT
 (cd "$tmp" && pnpm create vite@latest . --template react-ts >/dev/null)
-rsync -a --ignore-existing "$tmp"/ .
+cp -an "$tmp"/. .
 rm -rf "$tmp"
 trap - EXIT
 
