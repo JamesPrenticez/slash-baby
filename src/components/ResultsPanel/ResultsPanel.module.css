@@ -1,0 +1,98 @@
+.overlay {
+	position: fixed;
+	inset: 0;
+	z-index: var(--z-overlay);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--spacing-md);
+	background: var(--overlay-background);
+	backdrop-filter: blur(var(--blur-md));
+}
+
+.panel {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-md);
+	width: 100%;
+	max-width: 40rem;
+	max-height: 100%;
+	padding: var(--spacing-lg);
+	overflow-y: auto;
+	border: var(--border-thickness) solid var(--color-grey);
+	border-radius: var(--border-radius-md);
+	background: var(--panel-background);
+	color: var(--color-white);
+	text-align: center;
+}
+
+.panel:focus {
+	outline: none;
+}
+
+.category {
+	margin: 0;
+	color: var(--color-primary);
+	font: var(--font-bungee-md);
+	text-shadow: var(--text-shadow-outline);
+}
+
+.figures {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+	width: 100%;
+	margin: 0;
+}
+
+.figure {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+}
+
+.label {
+	color: var(--color-grey-light);
+	font: var(--font-zalando-bold-xs);
+	text-transform: uppercase;
+}
+
+.payout,
+.balance {
+	margin: 0;
+	font: var(--font-bungee-lg);
+	overflow-wrap: anywhere;
+}
+
+.balance {
+	font: var(--font-bungee-sm);
+}
+
+.continue {
+	width: 100%;
+	text-transform: uppercase;
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.panel {
+		padding: var(--spacing-xl);
+	}
+
+	.category {
+		font: var(--font-bungee-lg);
+	}
+
+	.payout {
+		font: var(--font-bungee-xl);
+	}
+}
+
+/* A short landscape phone: the figures sit side by side so the panel fits the height. */
+@media (orientation: landscape) {
+	.figures {
+		flex-direction: row;
+		justify-content: space-around;
+	}
+}

@@ -1,0 +1,73 @@
+/*
+ * Anchored top-right as NGU's strip is. The DOM is newest first; row-reverse puts the newest at the right edge.
+ * One row tall with wrapping: a pill that does not fit wraps to a clipped second row, so the strip never shows
+ * a half-cut pill on a narrow phone. The padding is room for the loss glow, which overflow would otherwise clip.
+ */
+.strip {
+	--pill-height: 2.4rem;
+	--glow-room: var(--spacing-md);
+
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: var(--z-hud);
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: row-reverse wrap;
+	align-content: flex-start;
+	align-items: flex-start;
+	/* The row gap is at least the bottom padding, which pushes a wrapped row wholly outside the box. */
+	gap: var(--glow-room) 0.6rem;
+	max-width: 100%;
+	height: calc(var(--pill-height) + var(--glow-room) * 2);
+	margin: 0;
+	padding: var(--glow-room);
+	overflow: hidden;
+	list-style: none;
+	pointer-events: none;
+}
+
+.pill {
+	--pill-border: var(--color-panel-border);
+
+	position: relative;
+	z-index: 0;
+	box-sizing: border-box;
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	height: var(--pill-height);
+	padding: var(--spacing-xs) var(--spacing-sm);
+	color: var(--color-white);
+	font: var(--font-bungee-base);
+	white-space: nowrap;
+}
+
+/* NGU glows the skull icon red on a loss; there is no icon here, so the whole pill glows. */
+.pill[data-category="loss"] {
+	--pill-border: var(--color-negative);
+}
+
+.background {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	width: 100%;
+	height: 100%;
+	color: var(--pill-border);
+}
+
+.background path:first-child {
+	fill: color-mix(in srgb, var(--color-panel-border) 50%, var(--color-black));
+}
+
+.pill[data-category="loss"] .background {
+	filter: drop-shadow(0 0 0.6rem color-mix(in srgb, var(--pill-border) 65%, transparent))
+		drop-shadow(0 0 1.2rem color-mix(in srgb, var(--pill-border) 65%, transparent));
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.strip {
+		--pill-height: 3.2rem;
+	}
+}

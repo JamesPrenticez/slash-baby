@@ -1,0 +1,163 @@
+/*
+ * A ceiling, not a height: the panel is auto-height on a tablet, so without one this box would grow to fit
+ * every row and the panel would become the scroller instead.
+ */
+.body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	box-sizing: border-box;
+	min-height: 0;
+	max-height: 52.6rem;
+	overflow-y: auto;
+}
+
+.empty {
+	display: flex;
+	flex: 1;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	margin: 0;
+	padding: var(--spacing-lg);
+	color: var(--color-grey);
+	font-size: var(--font-size-sm);
+	text-align: center;
+}
+
+.head,
+.summary {
+	display: grid;
+	grid-template-columns: 30% 40% 30%;
+}
+
+.head {
+	color: var(--color-grey-light);
+	font: var(--font-zalando-bold-xxs);
+	font-variation-settings: var(--font-width-narrow);
+}
+
+.head > span {
+	padding: var(--spacing-sm);
+}
+
+.head > span:last-child {
+	text-align: right;
+}
+
+.list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.row {
+	margin-bottom: 0.8rem;
+	border-radius: 0.4rem;
+	background: var(--surface-subtle);
+}
+
+.summary {
+	width: 100%;
+	padding: 0;
+	border: none;
+	border-radius: inherit;
+	background: none;
+	color: inherit;
+	font: var(--font-zalando-xxs);
+	text-align: start;
+	cursor: pointer;
+}
+
+.summary:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.cell {
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	min-width: 0;
+	padding: var(--spacing-sm);
+}
+
+.result {
+	justify-content: flex-end;
+	color: var(--color-grey);
+	font: var(--font-zalando-bold-xxs);
+	font-variation-settings: var(--font-width-narrow);
+	text-align: right;
+}
+
+.result[data-win] {
+	color: var(--color-secondary);
+}
+
+.badge {
+	display: inline-block;
+	padding: 0.2rem 1rem;
+	border-radius: var(--border-radius-sm);
+	background: var(--color-primary);
+	color: var(--color-black);
+	font: var(--font-zalando-bold-xs);
+	font-variation-settings: var(--font-width-narrow);
+	line-height: 120%;
+	text-transform: uppercase;
+}
+
+.badge[data-loss] {
+	background: var(--color-grey);
+	color: var(--color-grey-light);
+}
+
+.details {
+	margin: 0 var(--spacing-sm) var(--spacing-sm);
+	padding: 0.6rem;
+	border-radius: var(--border-radius-sm);
+	background: color-mix(in srgb, var(--color-black) 70%, transparent);
+	font-size: var(--font-size-xxs);
+	line-height: 120%;
+}
+
+.group {
+	padding: 0.8rem 0.4rem;
+}
+
+.group dt {
+	margin-bottom: 0.4rem;
+	color: var(--color-grey-light);
+	font-size: var(--font-size-legal);
+}
+
+.group dd {
+	margin: 0;
+	overflow-wrap: anywhere;
+}
+
+.footer {
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+}
+
+.more {
+	flex: 1;
+}
+
+@media (orientation: landscape), (min-width: 768px) and (min-height: 601px) {
+	.cell,
+	.head > span {
+		padding: var(--spacing-sm) var(--spacing-md);
+	}
+
+	.details {
+		margin: 0 var(--spacing-md) var(--spacing-sm);
+	}
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.empty {
+		min-height: 52.6rem;
+	}
+}

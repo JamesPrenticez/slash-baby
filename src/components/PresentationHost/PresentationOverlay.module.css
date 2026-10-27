@@ -1,0 +1,25 @@
+.overlay {
+	position: absolute;
+	inset: 0;
+	z-index: var(--z-hud);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--overlay-background);
+	pointer-events: none;
+}
+
+.caption {
+	margin: 0;
+	padding: var(--spacing-md);
+	color: var(--color-primary);
+	font: var(--font-bungee-lg);
+	text-align: center;
+	text-shadow: var(--text-shadow-outline);
+}
+
+@media (min-width: 768px) {
+	.caption {
+		font: var(--font-bungee-xxl);
+	}
+}

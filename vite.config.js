@@ -39,7 +39,17 @@ export default defineConfig(({ mode }) => {
 				// Test files and the setup file are excluded so they can't pad the
 				// numbers: a colocated *.test.tsx sits inside the include glob and
 				// would otherwise count as 100%-covered source.
-				exclude: ["src/**/*.test.{ts,tsx}", "src/vitest.setup.ts", "src/main.tsx", "src/**/*.d.ts", "src/**/index.ts"],
+				exclude: [
+					"src/**/*.test.{ts,tsx}",
+					"src/vitest.setup.ts",
+					"src/main.tsx",
+					"src/**/*.d.ts",
+					"src/**/index.ts",
+					// Pure-Pixi components need WebGL, which happy-dom lacks. Their logic lives in tested utils/ and they
+					// are covered by e2e instead of mocks.
+					"src/components/{GameCanvas,ParallaxWorld,Assassin,RunIntro,CoinTrail,MonsterWave,Monster}/**",
+					"src/components/PresentationHost/{PresentationHost,presentationTexture}.ts*"
+				],
 				// 80% is the team target. Adjust per-project only with a reason —
 				// this is meant to hold, not to be lowered on friction.
 				thresholds: {

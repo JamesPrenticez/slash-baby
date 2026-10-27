@@ -1,0 +1,85 @@
+.button {
+	position: relative;
+	box-sizing: border-box;
+	flex-shrink: 0;
+	padding: 1.3rem 1.2rem;
+	border: none;
+	border-radius: var(--border-radius-md);
+	background: var(--color-primary);
+	color: var(--color-white);
+	font: var(--font-bungee-xs);
+	text-shadow: var(--text-shadow-outline);
+	box-shadow: var(--button-shadow);
+	cursor: pointer;
+	transition: background var(--duration-fast) ease-in;
+}
+
+/* Grows the touch target on phones without moving neighbours. */
+.button::before {
+	content: "";
+	position: absolute;
+	inset: calc(var(--spacing-xs) * -1);
+}
+
+.button:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.button[data-variant="primary"]:not(:disabled):hover {
+	background: var(--color-primary-hover);
+}
+
+.button[data-variant="secondary"] {
+	background: var(--color-secondary);
+}
+
+.button[data-variant="secondary"]:not(:disabled):hover {
+	background: var(--color-secondary-hover);
+}
+
+.button[data-variant="negative"] {
+	background: var(--color-negative);
+}
+
+.button[data-variant="negative"]:not(:disabled):hover {
+	background: var(--color-negative-hover);
+}
+
+.button[data-variant="outline"] {
+	border: var(--border-thickness) solid var(--color-primary);
+	background: var(--background-color);
+	backdrop-filter: blur(var(--blur-md));
+	box-shadow: none;
+	color: var(--color-primary);
+	text-shadow: none;
+}
+
+.button[data-variant="outline"]:not(:disabled):hover {
+	background: var(--color-black);
+	color: var(--color-primary-hover);
+}
+
+.button:disabled {
+	border-color: transparent;
+	background: var(--color-grey);
+	color: var(--color-grey-light);
+	cursor: default;
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.button {
+		padding: var(--spacing-md) var(--spacing-lg);
+		font: var(--font-bungee-base);
+	}
+
+	.button::before {
+		content: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.button {
+		transition: none;
+	}
+}

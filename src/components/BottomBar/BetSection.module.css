@@ -1,0 +1,45 @@
+/* Portrait: the stepper spans the bar between two 5.2rem margins. */
+.bet {
+	z-index: 1;
+	display: flex;
+	flex-grow: 1;
+	align-items: center;
+	width: calc(100% - 10.4rem);
+	height: 100%;
+	margin: 0 5.2rem;
+}
+
+/*
+ * BetInput sizes its value block to the text's min-content, so a long amount overflows instead of shrinking. Give the
+ * block the space the stepper buttons leave, and the text row the block's full width, so FitText has a width to fit.
+ * These reach into BetInput's markup (the amount's ancestors) because BetInput does not expose the hook.
+ */
+.bet [data-orientation] :has(> span > .amount) {
+	flex: 1;
+	min-width: 0;
+}
+
+.bet [data-orientation] :has(> .amount) {
+	align-self: stretch;
+	min-width: 0;
+}
+
+@media (orientation: landscape) {
+	.bet {
+		order: 2;
+		flex-grow: 0;
+		width: 18rem;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+@media (min-width: 1024px) and (min-height: 601px) and (orientation: landscape) {
+	.bet {
+		box-sizing: border-box;
+		order: 3;
+		margin-left: auto;
+		padding-top: 0.7rem;
+		padding-bottom: 0.7rem;
+	}
+}

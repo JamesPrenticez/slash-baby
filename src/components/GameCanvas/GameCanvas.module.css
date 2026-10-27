@@ -1,0 +1,12 @@
+.host {
+	position: relative;
+	flex: 1;
+	min-height: 0;
+	overflow: hidden;
+	background: var(--color-black);
+}
+
+.host canvas {
+	position: absolute;
+	inset: 0;
+}

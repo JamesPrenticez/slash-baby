@@ -40,3 +40,5 @@ dist-ssr
 
 # Add project-specific ignores below this line (e.g. /server/dist, a local db file).
 # Don't add them above — this file is shared across all Animo projects.
+
+*.tsbuildinfo

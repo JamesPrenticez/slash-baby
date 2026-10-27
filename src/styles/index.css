@@ -3,9 +3,11 @@
 @import url("./base-variables.css");
 @import url("./colors.css");
 @import url("./fonts.css");
+@import url("./scrollbar.css");
 
 body {
 	margin: 0;
+	background: var(--color-black);
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 }

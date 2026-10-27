@@ -1,0 +1,21 @@
+.fit {
+	display: flex;
+	justify-content: center;
+	min-width: 0;
+	overflow: hidden;
+}
+
+.fit[data-align="start"] {
+	justify-content: flex-start;
+}
+
+/* Keeps its natural width; the scale FitText sets shrinks it into the box. */
+.text {
+	flex: none;
+	white-space: nowrap;
+	transform-origin: center;
+}
+
+.fit[data-align="start"] .text {
+	transform-origin: left center;
+}

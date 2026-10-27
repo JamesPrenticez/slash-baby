@@ -1,0 +1,90 @@
+/* Portrait phone (and tablet portrait): full width along the bottom edge, one column. */
+.container {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	align-items: center;
+}
+
+.bar {
+	box-sizing: border-box;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+	height: 100%;
+	padding: var(--spacing-sm);
+	background: var(--background-color);
+	border-radius: 0;
+}
+
+/* Menu and balance share a row at the foot of the column. */
+.menuBalance {
+	display: flex;
+	order: 4;
+	justify-content: space-between;
+	min-width: 0;
+	margin: var(--spacing-sm);
+}
+
+.balanceSlot {
+	display: contents;
+}
+
+/* Landscape phone: one compact row over the canvas. The balance is in the TopBar, and the buttons join the row. */
+@media (orientation: landscape) {
+	.container {
+		height: 7.2rem;
+	}
+
+	.bar {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		flex: none;
+		flex-direction: row;
+		gap: 0;
+		justify-content: center;
+	}
+
+	.menuBalance {
+		display: contents;
+	}
+
+	.balanceSlot {
+		display: none;
+	}
+}
+
+/* Tablet and desktop landscape: a floating, bordered, centred bar at most 110rem wide. */
+@media (min-width: 768px) and (min-height: 601px) and (orientation: landscape) {
+	.container {
+		right: auto;
+		bottom: var(--spacing-lg);
+		left: 50%;
+		width: min(110rem, calc(100vw - 2 * var(--spacing-lg)));
+		height: var(--size-control-double);
+		transform: translateX(-50%);
+	}
+
+	.bar {
+		position: static;
+		flex: 1 1 0;
+		height: calc(12rem + 2 * var(--border-thickness));
+		border: var(--border-thickness) solid var(--color-grey);
+		border-radius: var(--border-radius-md);
+	}
+
+	.menuBalance {
+		display: flex;
+		order: 1;
+		margin: 0;
+	}
+
+	.balanceSlot {
+		display: contents;
+	}
+}

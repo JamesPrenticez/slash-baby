@@ -1,0 +1,32 @@
+/* Portrait phone: nothing to show, the balance is in the bottom bar. */
+.topBar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	box-sizing: border-box;
+	display: none;
+	height: 10rem;
+	padding: 1.2rem;
+	background: radial-gradient(
+		circle 20rem at 0% 0%,
+		color-mix(in srgb, var(--color-black) 90%, transparent) 0%,
+		transparent 50%
+	);
+	background-repeat: no-repeat;
+	pointer-events: none;
+}
+
+/* Landscape phone. */
+@media (orientation: landscape) {
+	.topBar {
+		display: flex;
+	}
+}
+
+/* Tablet and desktop: the balance is in the floating bar. */
+@media (min-width: 768px) and (min-height: 601px) {
+	.topBar {
+		display: none;
+	}
+}

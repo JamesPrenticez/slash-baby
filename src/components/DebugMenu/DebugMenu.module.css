@@ -1,0 +1,168 @@
+/* The terminal look is NGU's debug toolbar. It uses only the --color-debug* and --font-mono* tokens. */
+
+/* A full-width strip at the top, its toggle centred so it never sits on the round strip (right) or the landscape
+   balance (left). Its empty parts pass clicks through: the empty parts pass clicks through: the toggle and the panel are the only
+   things that take them, so Run and the rest of the page stay usable while the menu is open. */
+.root {
+	position: fixed;
+	inset: 0 0 auto;
+	z-index: var(--z-top);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-xs);
+	padding: var(--spacing-xs);
+	color: var(--color-debug);
+	font: var(--font-mono-xxs);
+	pointer-events: none;
+}
+
+.root > * {
+	pointer-events: auto;
+}
+
+.toggle,
+.action,
+.select {
+	box-sizing: border-box;
+	padding: var(--spacing-sm);
+	border: var(--border-thickness) solid var(--color-debug);
+	border-radius: 0;
+	background: var(--color-debug-surface);
+	color: var(--color-debug);
+	font: inherit;
+	cursor: pointer;
+}
+
+.toggle {
+	border-color: var(--color-debug-border);
+	background: var(--panel-background);
+	color: var(--color-debug-muted);
+}
+
+.toggle:hover,
+.toggle[aria-expanded="true"] {
+	border-color: var(--color-debug);
+	color: var(--color-debug);
+}
+
+.action:hover,
+.action[aria-pressed="true"] {
+	background: var(--color-debug);
+	color: var(--color-black);
+}
+
+.toggle:focus-visible,
+.action:focus-visible,
+.select:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.panel {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-sm);
+	width: min(32rem, 100%);
+	/* Scrolls inside a short viewport, and stops above the bottom bar (30rem is the portrait bar and its popovers) so the
+	   page's own controls stay reachable. */
+	max-height: calc(100dvh - 30rem);
+	padding: var(--spacing-sm);
+	overflow-y: auto;
+	border: var(--border-thickness) solid var(--color-debug-border);
+	background: var(--panel-background);
+}
+
+/* Landscape: the bar is a short row, so the panel may be taller. */
+@media (orientation: landscape) {
+	.panel {
+		max-height: calc(100dvh - 3 * var(--size-control));
+	}
+}
+
+.group {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+	min-width: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.legend {
+	margin-bottom: var(--spacing-xs);
+	padding: 0;
+	color: var(--color-debug-warn);
+}
+
+.buttons {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+	gap: var(--spacing-xs);
+}
+
+.field {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-sm);
+}
+
+.readouts {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+	margin: 0;
+	padding-top: var(--spacing-sm);
+	border-top: var(--border-thickness) solid var(--color-debug-border);
+}
+
+.readout {
+	display: flex;
+	justify-content: space-between;
+	gap: var(--spacing-md);
+}
+
+.readout dt {
+	color: var(--color-debug-muted);
+}
+
+.readout dd {
+	margin: 0;
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+.badge {
+	padding: 0 var(--spacing-xs);
+	background: var(--color-debug-warn);
+	color: var(--color-black);
+}
+
+.note {
+	min-height: 1.2em;
+	margin: 0;
+	color: var(--color-debug-muted);
+	overflow-wrap: anywhere;
+}
+
+.action:disabled {
+	border-color: var(--color-debug-border);
+	background: var(--color-debug-surface);
+	color: var(--color-debug-muted);
+	cursor: not-allowed;
+}
+
+.log {
+	margin: 0;
+	padding: 0;
+	color: var(--color-debug-muted);
+	list-style: none;
+}
+
+textarea.select {
+	resize: vertical;
+	font: inherit;
+}

@@ -1,0 +1,38 @@
+/* Portrait: a row at the right of the balance, menu outermost. */
+.menuAudio {
+	display: flex;
+	flex-direction: row-reverse;
+	align-self: flex-start;
+	order: 5;
+	gap: var(--spacing-sm);
+	height: 100%;
+	margin-left: auto;
+}
+
+/* Landscape phone: square buttons filling the bar's height, at its left. */
+@media (orientation: landscape) {
+	.menuAudio {
+		flex-direction: row;
+		order: 0;
+		margin-left: 0;
+	}
+
+	.menuAudio button {
+		flex-shrink: 0;
+		width: auto;
+		height: 100%;
+		aspect-ratio: 1;
+	}
+}
+
+/* Tablet and desktop: the two buttons stack. */
+@media (min-width: 768px) and (min-height: 601px) and (orientation: landscape) {
+	.menuAudio {
+		flex-direction: column;
+	}
+
+	.menuAudio button {
+		flex-shrink: 1;
+		aspect-ratio: auto;
+	}
+}

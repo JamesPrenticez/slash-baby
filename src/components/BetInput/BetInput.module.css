@@ -1,0 +1,268 @@
+.bet {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.stepper {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--spacing-sm);
+	width: 100%;
+	height: 100%;
+	padding: var(--spacing-sm);
+	border-radius: var(--border-radius-md);
+	background: var(--color-black);
+}
+
+.bet[data-orientation="horizontal"] .stepper {
+	border: var(--border-thickness) solid var(--color-muted);
+}
+
+.valueBlock {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-xs);
+	padding: 0;
+	border: none;
+	background: none;
+	color: inherit;
+	font-family: inherit;
+	line-height: 1.5;
+	text-align: left;
+}
+
+button.valueBlock {
+	cursor: pointer;
+}
+
+button.valueBlock:hover > * {
+	opacity: 0.75;
+}
+
+button.valueBlock:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.bet[data-orientation="vertical"] .valueBlock {
+	align-items: flex-start;
+	margin-right: var(--spacing-sm);
+	padding-left: var(--spacing-xs);
+}
+
+.bet[data-orientation="horizontal"] .valueBlock {
+	align-items: center;
+	min-width: 7.2rem;
+	text-align: center;
+}
+
+.label {
+	color: var(--color-grey);
+	font: var(--font-zalando-bold-base);
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.value {
+	color: var(--color-white);
+	font: var(--font-zalando-bold-lg);
+	line-height: 1.2;
+	text-transform: uppercase;
+}
+
+.bet[data-orientation="horizontal"] .label {
+	font: var(--font-zalando-bold-xxs);
+	line-height: 1.2;
+}
+
+.bet[data-orientation="horizontal"] .value {
+	font: var(--font-zalando-bold-base);
+	line-height: 1.2;
+}
+
+.stack {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-xs);
+}
+
+.divider {
+	width: 40%;
+	border-bottom: var(--border-thickness) solid var(--color-grey);
+}
+
+.step {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	border: none;
+	border-radius: 30%;
+	background: transparent;
+	color: var(--color-white);
+	line-height: 1;
+	cursor: pointer;
+}
+
+.step svg {
+	width: var(--size-icon-sm);
+	height: var(--size-icon-sm);
+}
+
+.up {
+	transform: rotate(180deg);
+}
+
+.bet[data-orientation="vertical"] .step {
+	width: 3.6rem;
+	height: 3.6rem;
+}
+
+.bet[data-orientation="horizontal"] .step {
+	width: 3.2rem;
+	height: 3.2rem;
+	border-radius: var(--border-radius-sm);
+	background: var(--surface-subtle);
+}
+
+.bet[data-orientation="horizontal"] .step svg {
+	width: 1.8rem;
+	height: 1.8rem;
+}
+
+.step:hover:not(:disabled) {
+	color: var(--color-primary);
+}
+
+.step:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.bet .step:disabled {
+	background: var(--background-color-disabled);
+	color: var(--color-grey);
+	cursor: not-allowed;
+}
+
+/* Quick-select popup: portalled to body, so it is positioned from the stepper's measured box. */
+.popup {
+	--popup-width: min(38rem, calc(100vw - 2 * var(--spacing-md)));
+
+	position: fixed;
+	bottom: calc(var(--popup-bottom) + var(--spacing-xl));
+	left: clamp(calc(var(--popup-width) / 2), var(--popup-left), calc(100vw - var(--popup-width) / 2));
+	z-index: var(--z-top);
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 1.2rem;
+	width: var(--popup-width);
+	padding: var(--spacing-md);
+	border: var(--border-thickness) solid var(--border-color);
+	border-radius: var(--border-radius-md);
+	background: var(--background-color);
+	backdrop-filter: blur(var(--blur-md));
+	color: var(--color-white);
+	transform: translateX(-50%);
+}
+
+.popup:focus {
+	outline: none;
+}
+
+.popupHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.popupTitle {
+	font: var(--font-zalando-bold-sm);
+	letter-spacing: 0.02em;
+	text-transform: uppercase;
+}
+
+.popupClose {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: var(--size-icon-sm);
+	min-height: var(--size-icon-sm);
+	margin-left: auto;
+	padding: 0;
+	border: none;
+	background: none;
+	color: var(--color-white);
+	opacity: 0.6;
+	cursor: pointer;
+}
+
+.popupClose svg {
+	width: var(--size-icon-sm);
+	height: var(--size-icon-sm);
+}
+
+.popupClose:hover {
+	opacity: 1;
+}
+
+.popupClose:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+	opacity: 1;
+}
+
+/* Rows are 3.6rem (1.6rem text, 1rem padding either side) with 0.6rem gaps; four show on a short screen, five otherwise, then it scrolls. */
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	gap: 0.6rem;
+	width: 100%;
+	max-height: calc(4 * 3.6rem + 3 * 0.6rem);
+	padding-right: var(--spacing-sm);
+	overflow-y: auto;
+	scrollbar-color: var(--color-grey-light) transparent;
+	scrollbar-width: thin;
+}
+
+.option {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 7.7rem;
+	padding: 1rem var(--spacing-xs);
+	border: none;
+	border-radius: var(--border-radius-sm);
+	background: var(--color-black);
+	color: var(--color-white);
+	font: var(--font-zalando-bold-xxs);
+	line-height: 1.6rem;
+	cursor: pointer;
+}
+
+.option:hover:not([aria-pressed="true"]) {
+	background: color-mix(in srgb, var(--color-primary) 50%, transparent);
+}
+
+.option:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.option[aria-pressed="true"] {
+	background: var(--color-primary);
+	color: var(--color-black);
+}
+
+@media (min-height: 431px) {
+	.grid {
+		max-height: calc(5 * 3.6rem + 4 * 0.6rem);
+	}
+}

@@ -1,0 +1,119 @@
+/*
+ * The attribute selector raises specificity above Modal's own .panel rules, whichever stylesheet loads last.
+ * NGU's game info panel is tighter than the other modals and, on a tablet or desktop, tall and half the width.
+ */
+.panel[role="dialog"] {
+	padding: var(--spacing-md);
+	max-width: 100%;
+}
+
+.panel > header {
+	margin-bottom: var(--spacing-md);
+}
+
+.content {
+	flex: 1 1 auto;
+	min-height: 0;
+	padding-right: var(--spacing-sm);
+	overflow-y: auto;
+}
+
+.content section {
+	margin-bottom: var(--spacing-md);
+}
+
+.content h3 {
+	margin: 0;
+	padding: var(--spacing-sm) 0;
+	color: var(--color-primary);
+	font: var(--font-zalando-sm);
+	font-weight: var(--font-weight-medium);
+	text-transform: uppercase;
+}
+
+.content p {
+	margin: 0;
+	color: var(--color-white);
+	font: var(--font-zalando-xs);
+	font-weight: var(--font-weight-light);
+}
+
+.content p + p {
+	margin-top: var(--spacing-md);
+}
+
+/* A picture of the real button, so it never takes a press or a Tab stop. */
+.preview {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-top: var(--spacing-md);
+	pointer-events: none;
+}
+
+/* Half of the bottom bar's call to action, as in NGU. */
+.previewButton {
+	flex: 1 1 auto;
+	max-width: calc((30rem - var(--spacing-sm)) / 2);
+	height: var(--size-control);
+	padding: var(--spacing-md) var(--spacing-sm);
+	font: var(--font-bungee-xs);
+	white-space: nowrap;
+}
+
+.footer {
+	display: flex;
+	flex-shrink: 0;
+	justify-content: center;
+	margin: var(--spacing-xxl) 0 var(--spacing-md);
+}
+
+.footer a {
+	color: var(--color-primary);
+	font: var(--font-zalando-bold-base);
+	font-variation-settings: var(--font-width-narrow);
+	text-decoration: none;
+}
+
+.footer a:hover {
+	text-decoration: underline;
+}
+
+.footer a:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+@media (orientation: landscape) {
+	.footer {
+		margin: var(--spacing-md) 0 0;
+	}
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.panel[role="dialog"] {
+		width: 50dvw;
+		height: 90dvh;
+		max-height: 100%;
+	}
+
+	.panel > header {
+		margin-bottom: var(--spacing-xxxl);
+	}
+
+	.content section {
+		margin-bottom: var(--spacing-xxxl);
+	}
+
+	.content p {
+		font-size: var(--font-size-base);
+	}
+
+	.content p + p {
+		margin-top: var(--spacing-lg);
+	}
+
+	.preview {
+		margin-top: var(--spacing-lg);
+	}
+}

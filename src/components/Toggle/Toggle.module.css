@@ -1,0 +1,55 @@
+.track {
+	position: relative;
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	width: 4.6rem;
+	height: 2.4rem;
+	padding: 0;
+	border: none;
+	border-radius: var(--border-radius-pill);
+	background: var(--background-color-hover);
+	cursor: pointer;
+	transition: background var(--duration-base);
+}
+
+.track[aria-checked="true"] {
+	background: var(--color-primary);
+}
+
+.track:focus-visible {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.track:disabled {
+	background: var(--background-color-disabled);
+	cursor: not-allowed;
+}
+
+.thumb {
+	position: absolute;
+	top: 0.2rem;
+	left: 0.2rem;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background: var(--color-white);
+	pointer-events: none;
+	transition: left var(--duration-base);
+}
+
+.track[aria-checked="true"] .thumb {
+	left: 2.4rem;
+}
+
+.track:disabled .thumb {
+	background: var(--color-grey);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.track,
+	.thumb {
+		transition: none;
+	}
+}

@@ -1,0 +1,60 @@
+/*
+ * Scrollbars, as NGU. Every scroller gets a hairline bone-on-faint track; add a class for a wider one.
+ *   .custom-scrollbar         0.6rem, yellow thumb on black (a list that is the main thing on screen)
+ *   .custom-scrollbar-narrow  0.3rem, bone thumb on black (a list inside a panel)
+ * Browsers without ::-webkit-scrollbar (Firefox) get the standard thin scrollbar instead.
+ */
+
+@supports selector(::-webkit-scrollbar) {
+	*::-webkit-scrollbar {
+		width: 2px;
+	}
+
+	*::-webkit-scrollbar-thumb {
+		background-color: var(--color-white);
+	}
+
+	*::-webkit-scrollbar-track {
+		background-color: color-mix(in srgb, var(--color-white) 30%, transparent);
+	}
+
+	.custom-scrollbar::-webkit-scrollbar {
+		width: 0.6rem;
+		background: var(--color-black);
+		border-radius: 1rem;
+	}
+
+	.custom-scrollbar::-webkit-scrollbar-thumb {
+		background: var(--color-primary);
+		border-radius: 1rem;
+		cursor: pointer;
+	}
+
+	.custom-scrollbar-narrow::-webkit-scrollbar {
+		width: 0.3rem;
+		height: calc(max(0.6rem, 3px));
+		background: var(--color-black);
+		border-radius: 1rem;
+	}
+
+	.custom-scrollbar-narrow::-webkit-scrollbar-thumb {
+		background: var(--color-white);
+		border-radius: 1rem;
+		cursor: pointer;
+	}
+}
+
+@supports not selector(::-webkit-scrollbar) {
+	* {
+		scrollbar-width: thin;
+		scrollbar-color: var(--color-white) color-mix(in srgb, var(--color-white) 30%, transparent);
+	}
+
+	.custom-scrollbar {
+		scrollbar-color: var(--color-primary) var(--color-black);
+	}
+
+	.custom-scrollbar-narrow {
+		scrollbar-color: var(--color-white) var(--color-black);
+	}
+}

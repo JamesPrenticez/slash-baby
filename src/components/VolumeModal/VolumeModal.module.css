@@ -1,0 +1,71 @@
+/* Positions are NGU's: they sit above its bottom bar, which the bars in this repo reproduce. */
+.popover {
+	position: fixed;
+	right: 0;
+	bottom: 21.4rem;
+	left: 0;
+	z-index: var(--z-popover);
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	margin: 0 var(--spacing-md);
+	padding: 1rem var(--spacing-lg);
+	border: var(--border-thickness) solid var(--color-grey);
+	border-radius: var(--border-radius-md);
+	background: var(--modal-background);
+	backdrop-filter: blur(var(--blur-md));
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.icon {
+	flex-shrink: 0;
+	width: var(--size-icon-sm);
+	height: var(--size-icon-sm);
+	margin-right: var(--spacing-lg);
+	color: var(--color-white);
+}
+
+.control {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	width: 100%;
+	padding-right: calc(var(--spacing-md) / 2);
+}
+
+@media (orientation: landscape) {
+	.popover {
+		right: auto;
+		bottom: 7.6rem;
+		left: max(4rem, calc((100% - 65rem) / 2));
+		width: 28rem;
+		margin: 0;
+	}
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.popover {
+		width: 28rem;
+	}
+
+	.icon {
+		margin-right: var(--spacing-md);
+	}
+}
+
+@media (min-width: 768px) and (min-height: 601px) and (orientation: landscape) {
+	.popover {
+		right: auto;
+		bottom: 14rem;
+		left: calc(max((100% - 110rem) / 2, var(--spacing-lg)) + 13rem);
+		margin: 0;
+	}
+}

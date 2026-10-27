@@ -1,0 +1,78 @@
+.slider {
+	position: relative;
+	width: 100%;
+	height: 2.8rem;
+	margin: 1rem 0;
+}
+
+.track,
+.fill {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 0.4rem;
+	border-radius: 0.2rem;
+	transform: translateY(-50%);
+	pointer-events: none;
+}
+
+.track {
+	width: 100%;
+	background: var(--color-muted);
+}
+
+.fill {
+	width: var(--slider-fill);
+	background: var(--color-primary);
+}
+
+.thumb {
+	position: absolute;
+	top: 50%;
+	left: var(--slider-fill);
+	width: 2.8rem;
+	height: 2.8rem;
+	border-radius: 50%;
+	background: var(--color-white);
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+/* The real input is invisible and a little wider than the track, so the whole row takes touches. */
+.input {
+	position: absolute;
+	top: 50%;
+	left: -1rem;
+	width: calc(100% + 2rem);
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	cursor: pointer;
+	transform: translateY(-50%);
+	-webkit-appearance: none;
+}
+
+.input:focus + .thumb {
+	background: var(--color-primary);
+}
+
+.input:focus-visible + .thumb {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.input:disabled {
+	cursor: default;
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.slider {
+		height: var(--spacing-md);
+	}
+
+	.thumb {
+		width: var(--spacing-md);
+		height: var(--spacing-md);
+	}
+}

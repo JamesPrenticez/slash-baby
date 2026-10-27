@@ -1,7 +1,65 @@
 :root {
 	/*
-	 * Non-color, non-font tokens go here — spacing, radii, z-index, durations.
-	 * Empty on purpose: seeding a scale nobody asked for just gets ignored or
-	 * half-replaced. Add steps as the project needs them.
+	 * Non-color, non-font tokens: spacing, radii, sizes, z-index, motion, shadows.
+	 * Values are NGU's (never-give-up/src/styles/base-variables.css and shadows.css).
+	 *
+	 * Breakpoints cannot be variables (custom properties do not work in @media).
+	 * Write these literals, mobile-first, so every component agrees:
+	 *   tablet            (min-width: 768px) and (min-height: 601px)
+	 *   desktop           (min-width: 1024px) and (min-height: 601px)
+	 *   landscape         (orientation: landscape)
+	 *   tablet landscape  (min-width: 768px) and (min-height: 601px) and (orientation: landscape)
+	 * The min-height keeps a short, wide landscape phone on the phone layout.
 	 */
+
+	--spacing-xs: 0.4rem;
+	--spacing-sm: 0.8rem;
+	--spacing-md: 1.6rem;
+	--spacing-lg: 2.4rem;
+	--spacing-xl: 3.2rem;
+	--spacing-xxl: 4rem;
+	--spacing-xxxl: 4.8rem;
+
+	--size-control: 4.8rem;
+	--size-control-double: calc(var(--size-control) * 2 + var(--spacing-sm));
+	--size-icon-sm: 2.4rem;
+	--size-icon: 2.8rem;
+
+	--border-thickness: calc(max(0.1rem, 1px));
+	--border-radius-sm: 0.6rem;
+	--border-radius-md: 0.8rem;
+	--border-radius-lg: 1rem;
+	--border-radius-pill: 10rem;
+
+	--blur-sm: 0.4rem;
+	--blur-md: 0.5rem;
+
+	/* Stacking order of the DOM layer above the canvas. */
+	--z-popover: 50;
+	--z-hud: 100;
+	--z-overlay: 150;
+	--z-ui: 200;
+	--z-top: 9999;
+
+	--duration-fast: 100ms;
+	--duration-base: 150ms;
+	--duration-slow: 250ms;
+	--duration-overlay: 400ms;
+
+	--focus-outline: 0.3rem solid var(--color-focus);
+	--focus-outline-offset: 0.2rem;
+
+	--text-shadow-outline:
+		0.2rem 0.2rem 0 var(--color-black), 0.2rem -0.1rem 0 var(--color-black), -0.1rem 0.2rem 0 var(--color-black),
+		-0.1rem -0.1rem 0 var(--color-black), 0.2rem 0 0 var(--color-black), 0 0.2rem 0 var(--color-black),
+		-0.1rem 0 0 var(--color-black), 0 -0.1rem 0 var(--color-black);
+
+	--button-shadow:
+		0.1rem 0.1rem 0rem var(--color-black),
+		0rem -0.3rem 0rem color-mix(in srgb, var(--color-black) 25%, transparent) inset,
+		0rem 0.3rem 0rem color-mix(in srgb, var(--color-white) 20%, transparent) inset;
+
+	/* Figma design sizes (px) for scaling landscape layouts with dvw/dvh: calc(N / var(--mobile-longest-design-size) * 100 * 1dvh) */
+	--mobile-longest-design-size: 852;
+	--mobile-shortest-design-size: 393;
 }

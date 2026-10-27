@@ -1,0 +1,90 @@
+/* Layout follows NGU's loading screen: logo, bar, percentage. No logo art exists yet, so the title is set in type. */
+.screen {
+	position: fixed;
+	inset: 0;
+	z-index: var(--z-top);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: var(--color-black);
+	user-select: none;
+}
+
+.title {
+	margin: 0 0 var(--spacing-lg);
+	color: var(--color-primary);
+	font: var(--font-bungee-xxl);
+	text-align: center;
+	text-shadow: var(--text-shadow-outline);
+}
+
+.bar {
+	box-sizing: border-box;
+	width: 80%;
+	max-width: 60rem;
+	height: 1.2rem;
+	overflow: hidden;
+	border: var(--border-thickness) solid var(--color-primary);
+	border-radius: 1.6rem;
+	background: var(--color-black);
+}
+
+.fill {
+	height: 100%;
+	border-radius: 1.6rem;
+	background: var(--color-primary);
+	transition: width var(--duration-base) ease;
+}
+
+.bar[data-indeterminate] .fill {
+	width: 40%;
+	animation: slide 1.2s ease-in-out infinite;
+}
+
+@keyframes slide {
+	from {
+		transform: translateX(-100%);
+	}
+
+	to {
+		transform: translateX(250%);
+	}
+}
+
+.percent {
+	margin: var(--spacing-md) 0 0;
+	color: var(--color-primary);
+	font: var(--font-bungee-md);
+}
+
+/* A short landscape phone: tighten the stack so it stays in view. */
+@media (orientation: landscape) {
+	.title {
+		margin-bottom: var(--spacing-md);
+		font: var(--font-bungee-xl);
+	}
+}
+
+@media (min-width: 768px) and (min-height: 601px) {
+	.title {
+		font: var(--font-bungee-xxxxl);
+	}
+
+	.bar {
+		width: 60%;
+		height: 2.4rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.fill {
+		transition: none;
+	}
+
+	.bar[data-indeterminate] .fill {
+		width: 100%;
+		animation: none;
+		opacity: 0.4;
+	}
+}

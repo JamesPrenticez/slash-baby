@@ -1,0 +1,9 @@
+/* The canvas fills the screen; the bars, strip and panels float over it (NGU's layout at every size). */
+.app {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: 100dvh;
+	overflow: hidden;
+	background: var(--color-black);
+}

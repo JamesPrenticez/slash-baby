@@ -4,7 +4,26 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>tmp-irdtcbvnbv</title>
+		<title>Slash Baby</title>
+		<!--
+			Fonts: Bungee and Zalando Sans from Google Fonts. media="print" keeps the stylesheet off the critical path
+			(it never blocks first paint or the app script), and onload switches it on once it arrives. display=swap
+			shows fallback text until then, and the layout re-measures when the font lands.
+		-->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Bungee&family=Zalando+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<noscript>
+			<link
+				rel="stylesheet"
+				href="https://fonts.googleapis.com/css2?family=Bungee&family=Zalando+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap"
+			/>
+		</noscript>
 	</head>
 	<body>
 		<div id="root"></div>

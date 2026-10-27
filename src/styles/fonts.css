@@ -1,6 +1,7 @@
-/* Replace font family and sizes here */
-@import url("https://fonts.googleapis.com/css2?family=Bungee&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap");
+/*
+ * Replace font sizes here. The families (Bungee, Zalando Sans) are loaded from <link> tags in index.html, never from
+ * an @import here: a pending external @import holds back this whole sheet, tokens and reset included.
+ */
 :root {
 	--font-size-legal: 1rem;
 	--font-size-xxs: 1.2rem;
@@ -21,22 +22,24 @@
 
 	--font-weight-bold: 700;
 	--font-weight-semibold: 600;
+	--font-weight-medium: 500;
 	--font-weight-normal: 400;
+	--font-weight-light: 200;
 
 	/* Bungee Font Styles */
 	--font-bungee: "Bungee", sans-serif;
-	--font-bungee-legal: var(--font-weight-bold) var(--font-size-legal)/1 var(--font-bungee);
-	--font-bungee-xxs: var(--font-weight-bold) var(--font-size-xxs)/1 var(--font-bungee);
-	--font-bungee-xs: var(--font-weight-bold) var(--font-size-xs)/1 var(--font-bungee);
-	--font-bungee-base: var(--font-weight-bold) var(--font-size-base)/1 var(--font-bungee);
-	--font-bungee-sm: var(--font-weight-bold) var(--font-size-sm)/1 var(--font-bungee);
-	--font-bungee-md: var(--font-weight-bold) var(--font-size-md)/1 var(--font-bungee);
-	--font-bungee-lg: var(--font-weight-bold) var(--font-size-lg)/1 var(--font-bungee);
-	--font-bungee-xl: var(--font-weight-bold) var(--font-size-xl)/1 var(--font-bungee);
-	--font-bungee-xxl: var(--font-weight-bold) var(--font-size-xxl)/1 var(--font-bungee);
-	--font-bungee-xxxl: var(--font-weight-bold) var(--font-size-xxxl)/1 var(--font-bungee);
-	--font-bungee-xxxxl: var(--font-weight-bold) var(--font-size-xxxxl)/1 var(--font-bungee);
-	--font-bungee-xxxxxl: var(--font-weight-bold) var(--font-size-xxxxxl)/1 var(--font-bungee);
+	--font-bungee-legal: var(--font-weight-normal) var(--font-size-legal)/1 var(--font-bungee);
+	--font-bungee-xxs: var(--font-weight-normal) var(--font-size-xxs)/1 var(--font-bungee);
+	--font-bungee-xs: var(--font-weight-normal) var(--font-size-xs)/1 var(--font-bungee);
+	--font-bungee-base: var(--font-weight-normal) var(--font-size-base)/1 var(--font-bungee);
+	--font-bungee-sm: var(--font-weight-normal) var(--font-size-sm)/1 var(--font-bungee);
+	--font-bungee-md: var(--font-weight-normal) var(--font-size-md)/1 var(--font-bungee);
+	--font-bungee-lg: var(--font-weight-normal) var(--font-size-lg)/1 var(--font-bungee);
+	--font-bungee-xl: var(--font-weight-normal) var(--font-size-xl)/1 var(--font-bungee);
+	--font-bungee-xxl: var(--font-weight-normal) var(--font-size-xxl)/1 var(--font-bungee);
+	--font-bungee-xxxl: var(--font-weight-normal) var(--font-size-xxxl)/1 var(--font-bungee);
+	--font-bungee-xxxxl: var(--font-weight-normal) var(--font-size-xxxxl)/1 var(--font-bungee);
+	--font-bungee-xxxxxl: var(--font-weight-normal) var(--font-size-xxxxxl)/1 var(--font-bungee);
 
 	/* Zalando Font Styles */
 	--font-zalando: "Zalando Sans", sans-serif;
@@ -53,23 +56,29 @@
 		font: var(--font-zalando-bold-base);
 		font-variation-settings: var(--font-width-narrow);
 	*/
+	--font-zalando-bold-legal: var(--font-weight-semibold) var(--font-size-legal)/1 var(--font-zalando);
 	--font-zalando-bold-xxs: var(--font-weight-semibold) var(--font-size-xxs)/1 var(--font-zalando);
 	--font-zalando-bold-xs: var(--font-weight-semibold) var(--font-size-xs)/1 var(--font-zalando);
 	--font-zalando-bold-base: var(--font-weight-semibold) var(--font-size-base)/1 var(--font-zalando);
 	--font-zalando-bold-sm: var(--font-weight-semibold) var(--font-size-sm)/1 var(--font-zalando);
 	--font-zalando-bold-md: var(--font-weight-semibold) var(--font-size-md)/1 var(--font-zalando);
 	--font-zalando-bold-lg: var(--font-weight-semibold) var(--font-size-lg)/1 var(--font-zalando);
+
+	/* Debug menu only. */
+	--font-mono: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+	--font-mono-legal: var(--font-weight-normal) var(--font-size-legal)/1.2 var(--font-mono);
+	--font-mono-xxs: var(--font-weight-normal) var(--font-size-xxs)/1.2 var(--font-mono);
 }
 
 html,
 body {
-	color: var(--color-black);
+	color: var(--color-white);
 	font-family: var(--font-zalando);
 	font-size: 10px;
 	line-height: 100%;
 }
 
 button {
-	color: var(--color-black);
+	color: var(--color-white);
 	font-family: var(--font-bungee);
 }

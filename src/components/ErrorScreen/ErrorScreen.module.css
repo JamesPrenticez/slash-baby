@@ -1,0 +1,62 @@
+/* NGU's message modal panel with its error boundary's type. */
+.screen {
+	position: fixed;
+	inset: 0;
+	z-index: var(--z-top);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.panel {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: var(--spacing-md);
+	width: 100%;
+	height: 100%;
+	padding: var(--spacing-xl);
+	background: var(--overlay-background);
+	text-align: center;
+}
+
+.text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--spacing-md);
+}
+
+.title {
+	margin: 0;
+	color: var(--color-negative);
+	font: var(--font-bungee-sm);
+	text-shadow: var(--text-shadow-outline);
+}
+
+.message {
+	max-width: 32rem;
+	margin: 0;
+	color: var(--color-grey-light);
+	font: var(--font-zalando-bold-xs);
+	font-variation-settings: var(--font-width-narrow);
+	line-height: 150%;
+	overflow-wrap: anywhere;
+}
+
+.retry {
+	margin-top: var(--spacing-sm);
+	text-transform: uppercase;
+}
+
+@media (min-width: 1024px) and (min-height: 601px) {
+	.panel {
+		width: auto;
+		height: auto;
+		min-width: 40rem;
+		max-width: 30%;
+		border-radius: var(--border-radius-lg);
+	}
+}

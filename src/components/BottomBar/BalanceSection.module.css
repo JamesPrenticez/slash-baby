@@ -1,0 +1,62 @@
+.balance {
+	display: flex;
+	align-items: flex-start;
+	order: 4;
+	min-width: 0;
+}
+
+/* NGU's field group: a small label over the value, in rows weighted 4:6. */
+.group {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-rows: 4fr 6fr;
+	gap: var(--spacing-xs);
+	margin: 0;
+}
+
+.label {
+	align-self: end;
+	color: var(--color-primary);
+	font: var(--font-zalando-bold-xxs);
+	font-variation-settings: var(--font-width-narrow);
+	text-transform: uppercase;
+}
+
+.value {
+	box-sizing: border-box;
+	align-self: start;
+	width: 100%;
+	margin: var(--spacing-sm) 0 0;
+	padding-right: 1rem;
+	color: var(--color-white);
+	font: var(--font-zalando-bold-base);
+	font-variation-settings: var(--font-width-narrow);
+}
+
+@media (min-width: 768px) and (min-height: 601px) and (orientation: landscape) {
+	.balance {
+		align-items: center;
+		order: 1;
+		height: 100%;
+		margin-left: var(--spacing-lg);
+		padding-right: 1rem;
+	}
+
+	.group {
+		gap: var(--spacing-sm);
+		height: 100%;
+	}
+
+	.label {
+		color: var(--color-grey-light);
+		font: var(--font-zalando-bold-base);
+		font-variation-settings: var(--font-width-narrow);
+		line-height: 1.2;
+	}
+
+	.value {
+		font: var(--font-zalando-bold-lg);
+		font-variation-settings: var(--font-width-narrow);
+		text-transform: uppercase;
+	}
+}

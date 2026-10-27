@@ -1,6 +1,14 @@
 :root {
-	--color-black: #000000;
-	--color-white: #ffffff;
+	/* NGU's near-black and bone white: its whole UI is drawn on these two. */
+	--color-black: #080808;
+	--color-white: #f4ebd3;
+
+	--color-grey: #666666;
+	--color-grey-light: #b3b3b3;
+	--color-grey-dark: #333333;
+
+	--color-focus: #ff8a2b;
+	--color-panel-border: #6e5430;
 
 	--color-primary: #f2b93a;
 	--color-primary-hover: #e7b64f;
@@ -13,4 +21,23 @@
 	--color-negative: #f82738;
 	--color-negative-hover: #ff3b3b;
 	--color-negative-accent: #ff6f61;
+
+	/* Derived surfaces, named as in NGU. */
+	--color-muted: color-mix(in srgb, var(--color-white) 20%, transparent);
+	--surface-subtle: color-mix(in srgb, var(--color-white) 10%, transparent);
+	--background-color: color-mix(in srgb, var(--color-black) 50%, transparent);
+	--background-color-hover: color-mix(in srgb, var(--color-grey) 50%, transparent);
+	--background-color-disabled: color-mix(in srgb, var(--color-black) 40%, transparent);
+	--modal-background: color-mix(in srgb, var(--color-black) 75%, transparent);
+	--panel-background: color-mix(in srgb, var(--color-black) 90%, transparent);
+	--overlay-background: color-mix(in srgb, var(--color-black) 70%, transparent);
+	--border-color: color-mix(in srgb, var(--color-white) 30%, transparent);
+
+	/* Debug menu only (NGU's terminal look). Never used by the game UI. */
+	--color-debug: #00ff00;
+	--color-debug-muted: #888888;
+	--color-debug-warn: #ff9900;
+	--color-debug-danger: #ff4444;
+	--color-debug-surface: #1a1a1a;
+	--color-debug-border: #444444;
 }
