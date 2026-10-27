@@ -35,8 +35,14 @@ jobs:
       - name: Typecheck
         run: pnpm exec tsc --noEmit
 
+      - name: Typecheck mock server
+        run: pnpm typecheck:server
+
       - name: Vitest (with coverage)
         run: pnpm exec vitest run --coverage
+
+      - name: Test mock server
+        run: pnpm test:server
 
       - name: Build
         run: pnpm build
@@ -70,7 +76,7 @@ jobs:
       - name: Install Playwright browsers
         run: pnpm exec playwright install --with-deps
 
-      # playwright.config.ts's webServer block starts `pnpm dev` itself.
+      # playwright.config.ts's webServer block starts the mock server and the client itself.
       - name: E2e tests
         run: pnpm e2e:test
 

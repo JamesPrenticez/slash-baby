@@ -14,11 +14,20 @@ export default defineConfig({
 		baseURL: "http://localhost:3000",
 		trace: "on-first-retry"
 	},
-	webServer: {
-		command: "pnpm dev",
-		url: "http://localhost:3000",
-		reuseExistingServer: !process.env.CI
-	},
+	// The MOCK game server (server/) and the client. Each is waited on at its own URL.
+	webServer: [
+		{
+			command: "pnpm dev:server",
+			url: "http://localhost:3001/api/health",
+			reuseExistingServer: !process.env.CI
+		},
+		{
+			command: "pnpm dev:client",
+			url: "http://localhost:3000",
+			env: { VITE_DEBUG: "true" },
+			reuseExistingServer: !process.env.CI
+		}
+	],
 	projects: [
 		{ name: "desktop-chrome", use: { ...devices["Desktop Chrome"] } },
 		{ name: "desktop-firefox", use: { ...devices["Desktop Firefox"] } },
